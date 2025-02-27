@@ -1,6 +1,6 @@
 # MyMoodAI Python SDK
 
-**A blazing-fast Python client for interacting with [MyMoodAI](https://developer.mymoodai.app/) REST APIs.** This SDK streamlines creating and managing model training orders, uploading training images (selfies), running training or generation jobs, and retrieving statuses — so you can focus on building amazing AI-powered applications!
+**A blazing-fast Python client for interacting with [MyMoodAI](https://developer.mymoodai.app/) REST APIs.** This SDK streamlines creating and managing model training orders, uploading training images (selfies), running training or generation jobs, and retrieving statuses â€” so you can focus on building amazing AI-powered applications!
 
 ---
 
@@ -32,7 +32,7 @@
 
 ## Overview
 
-This repository provides a Python SDK for seamlessly leveraging MyMoodAI's personalization and image generation services. The SDK abstracts away low-level HTTP calls, handling JSON serialization, base64 encoding of images, and endpoint organization — all with a clean, Pythonic interface.
+This repository provides a Python SDK for seamlessly leveraging MyMoodAI's personalization and image generation services. The SDK abstracts away low-level HTTP calls, handling JSON serialization, base64 encoding of images, and endpoint organization â€” all with a clean, Pythonic interface.
 
 **Common Use Cases**:
 - Train AI avatars/models from user-provided selfies.
@@ -86,7 +86,7 @@ pip install -r requirements.txt
 Then, in your Python code, you can import and start using the client:
 
 ```python
-from mymoodai_client import MyMoodAIClient
+from mymoodai import MyMoodAIClient
 ```
 
 ---
@@ -96,7 +96,7 @@ from mymoodai_client import MyMoodAIClient
 ### Quickstart
 
 ```python
-from mymoodai_client import MyMoodAIClient
+from mymoodai import MyMoodAIClient
 
 # Initialize the client
 client = MyMoodAIClient(
@@ -107,7 +107,7 @@ client = MyMoodAIClient(
 
 ### Creating a Model
 
-Creating a model is effectively creating a “training order” with `parent=0`. For example:
+Creating a model is effectively creating a â€œtraining orderâ€ with `parent=0`. For example:
 
 ```python
 model_payload = {
@@ -135,7 +135,7 @@ By default, the SDK reads the file from your filesystem, encodes it as Base64, a
 
 ### Running Orders
 
-To start the training process once you’ve uploaded sufficient selfies:
+To start the training process once youâ€™ve uploaded sufficient selfies:
 
 ```python
 train_response = client.run_order(order_id=model_id)
@@ -144,7 +144,7 @@ print("Training kicked off:", train_response)
 
 ### Checking Order Status
 
-You can poll the status of your order until it’s ready:
+You can poll the status of your order until itâ€™s ready:
 
 ```python
 status = client.get_order_status(order_id=model_id)
@@ -160,7 +160,7 @@ Statuses may include:
 
 ### Generating Images with a Trained Model
 
-Once your model is trained, you can create a new order using that model’s `id` as the `parent`. This instructs MyMoodAI to generate images with the trained model:
+Once your model is trained, you can create a new order using that modelâ€™s `id` as the `parent`. This instructs MyMoodAI to generate images with the trained model:
 
 ```python
 order_payload = {
@@ -200,7 +200,7 @@ print("Avatars on page", page_id, ":", avatars_response)
 
 ### Logging & Error Handling
 
-- **Logging**: You can integrate Python’s built-in `logging` module to track requests and responses. For example:
+- **Logging**: You can integrate Pythonâ€™s built-in `logging` module to track requests and responses. For example:
   ```python
   import logging
   logging.basicConfig(level=logging.DEBUG)  # DEBUG, INFO, WARNING, etc.
@@ -221,7 +221,7 @@ Instead of hardcoding your API key, consider using environment variables:
 
 ```python
 import os
-from mymoodai_client import MyMoodAIClient
+from mymoodai import MyMoodAIClient
 
 api_key = os.environ.get("MYMOODAI_API_KEY", "")
 client = MyMoodAIClient(
@@ -239,7 +239,7 @@ Then set `MYMOODAI_API_KEY` in your shell or `.env` file.
 Below is a full end-to-end usage example:
 
 ```python
-from mymoodai_client import MyMoodAIClient
+from mymoodai import MyMoodAIClient
 
 # 1. Initialize the client
 client = MyMoodAIClient(
@@ -303,10 +303,10 @@ Below is a concise summary of available methods in `MyMoodAIClient`. Each method
    List all available public styles.
 
 7. **`list_orders() -> Dict[str, Any]`**  
-   List all orders you’ve created.
+   List all orders youâ€™ve created.
 
 8. **`list_models() -> Dict[str, Any]`**  
-   List all models you’ve created.
+   List all models youâ€™ve created.
 
 9. **`list_model_avatars(order_id: int, page_id: int) -> Dict[str, Any]`**  
    List generated avatars on a trained model.
@@ -325,13 +325,13 @@ Below is a concise summary of available methods in `MyMoodAIClient`. Each method
 ## FAQ
 
 1. **How many selfies should I upload for optimal training?**  
-   The more varied, high-quality selfies you upload, the better the resulting model. Typically, 5–10 images can give decent results.
+   The more varied, high-quality selfies you upload, the better the resulting model. Typically, 5â€“10 images can give decent results.
 
 2. **Can I use this without an API key?**  
-   It depends on whether the MyMoodAI endpoint you’re targeting requires authentication. In most production use-cases, yes, you’ll need an API key.
+   It depends on whether the MyMoodAI endpoint youâ€™re targeting requires authentication. In most production use-cases, yes, youâ€™ll need an API key.
 
 3. **What image file formats does it support?**  
-   JPEG and PNG are most common. The client just reads the file bytes and encodes them in Base64, so if the API supports it, you’re good to go.
+   JPEG and PNG are most common. The client just reads the file bytes and encodes them in Base64, so if the API supports it, youâ€™re good to go.
 
 4. **What if my order fails?**  
    Check the error messages returned by the API. Training can fail due to insufficient selfies, invalid image data, or style ID issues.
@@ -358,9 +358,9 @@ Contributions are welcome! Feel free to open an issue or submit a pull request o
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). You’re free to use, modify, and distribute this software in personal or commercial projects.
+This project is licensed under the [MIT License](LICENSE). Youâ€™re free to use, modify, and distribute this software in personal or commercial projects.
 
 ---
 
 **Happy building with MyMoodAI!**  
-If you have any questions or feedback, [open an issue](https://github.com/Ai-Thumbnail-Maker-LLC/MyMoodAI-SDK/issues) or reach out to the MyMoodAI team. We’re here to help you succeed.
+If you have any questions or feedback, [open an issue](https://github.com/Ai-Thumbnail-Maker-LLC/MyMoodAI-SDK/issues) or reach out to the MyMoodAI team. Weâ€™re here to help you succeed.
