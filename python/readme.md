@@ -86,7 +86,7 @@ pip install -r requirements.txt
 Then, in your Python code, you can import and start using the client:
 
 ```python
-from mymoodai_client import MyMoodAIClient
+from mymoodai import MyMoodAIClient
 ```
 
 ---
@@ -96,7 +96,7 @@ from mymoodai_client import MyMoodAIClient
 ### Quickstart
 
 ```python
-from mymoodai_client import MyMoodAIClient
+from mymoodai import MyMoodAIClient
 
 # Initialize the client
 client = MyMoodAIClient(
@@ -239,7 +239,7 @@ Then set `MYMOODAI_API_KEY` in your shell or `.env` file.
 Below is a full end-to-end usage example:
 
 ```python
-from mymoodai_client import MyMoodAIClient
+from mymoodai import MyMoodAIClient
 
 # 1. Initialize the client
 client = MyMoodAIClient(
